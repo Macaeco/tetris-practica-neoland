@@ -17,7 +17,7 @@ function generateRandomTetromino() {
     const randomTetrominoInfo = {
         positionAtTetrominoeList: randomIndex,
         piece: tetrominoes[randomIndex],
-        position: 0,
+        position: Math.floor(width/2),
         rotation: 0
     }
     return randomTetrominoInfo
@@ -25,10 +25,10 @@ function generateRandomTetromino() {
 
 function drawTetrominoInMainBoard() {
     const tetromino = generateRandomTetromino();
-    tetromino.piece[0].forEach(e => document.querySelector(`.cell${e}`).style.opacity = 1)
-    currentTetromino = tetromino.piece[0]
+    tetromino.piece[tetromino.rotation].forEach(e => document.querySelector(`.cell${e+tetromino.position-1}`).style.opacity = 1)
+    currentTetromino = tetromino;
 }
 
 function undrawTetrominoInMainBoard() {
-    currentTetromino.forEach( e => document.querySelector(`.cell${e}`).style.opacity = 0.2)
+    currentTetromino.piece[currentTetromino.rotation].forEach(e => document.querySelector(`.cell${e+currentTetromino.position-1}`).style.opacity = 0.2)
 }
