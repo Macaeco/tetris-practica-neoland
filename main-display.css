@@ -50,7 +50,9 @@
     height: 137px;
     gap: 2px;
     border: 3px solid black;
-    padding: 3px;
+    padding: 1px;
+    margin-bottom: 25px;
+
 }
 .encabezado{
     text-align: center;
