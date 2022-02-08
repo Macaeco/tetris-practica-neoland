@@ -1,3 +1,9 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
 .cell{
     background-color: #C6CFA2;
     border:1px solid grey;
@@ -7,11 +13,13 @@
 
 }
 .tetris__grid_container{
-    display: flex;  
-    padding-left: 150px;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    gap:26px;
 
 }
-
 .tetris__grid{
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -19,7 +27,9 @@
     width: 346px;
     height: 692px;
     gap: 2px;
-    border:4px solid black;
+    border:3px solid black;
+    padding: 3px;
+
 
 }
 .tetris__img{
@@ -31,9 +41,6 @@
     width:30px;
     height: 30px;
     gap: 5px;
-    
-
-
 }
 .score__grid{
     display: grid;
@@ -43,25 +50,31 @@
     height: 137px;
     gap: 2px;
     border: 3px solid black;
+    padding: 1px;
+    margin-bottom: 25px;
+
+}
+.encabezado{
+    text-align: center;
+    margin: 10px 0px 5px 0px;
+
+
+}
+.paraff{
+    text-align: center;
+    border: 3px solid black;
+    padding: 10px;
+    margin-bottom: 20px;
 }
 .score__grid_container{
-    padding-left: 150px;
     display: flex;
     align-content: space-around;
     flex-direction: column;
     justify-content: space-around;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 3px solid black;
+    padding: 10px;
 }
-.score__mark{
-    width: 189px;
-    height: 296px;
-
-}
-.score_titules{
-
-
-}
-
 .grid__container{
     background-color: #C6CFA2;
 }
