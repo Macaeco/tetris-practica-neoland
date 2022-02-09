@@ -27,6 +27,7 @@ displayContainer.classList.add('displayContainer')
 
 // createGrid(200)
 
+
 let squares = [];
 
 function generateBoardBlock() {
