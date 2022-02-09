@@ -1,22 +1,26 @@
-const tetrominoI = [[0, width, width*2, width*3], [0, 1, 2, 3], [0, width, width*2, width*3], [0, 1, 2, 3]];
-const tetrominoL = [[0, 1, 2, width], [0, 1, width+1, (width*2)+1], [2, width, width+1, width+2], [0, width, width*2, (width*2)+1]];
-const tetrominoS = [[1, 2, width, width+1], [0, width, width+1, width*2+1]];
-const tetrominoZ = [[0, 1, width+1, width+2], [1, width, width+1, width*2]];
-const tetrominoJ = [[0, 1, 2, width+2], [1, width+1, width*2, width*2+1], [0, width, width+1, width+2], [0, 1, width, width*2]];
-const tetrominoO = [[0, 1, width, width+1]];
-const tetrominoT = [[0, 1, 2, width+1], [1, width, width+1, width*2+1], [1, width, width+1, width+2], [0, width, width+1, width*2]];
+/* tetrominoes rotations */
+const tetrominoI = [[0, boardWidth, boardWidth*2, boardWidth*3], [0, 1, 2, 3], [0, boardWidth, boardWidth*2, boardWidth*3], [0, 1, 2, 3]];
+const tetrominoL = [[0, 1, 2, boardWidth], [0, 1, boardWidth+1, (boardWidth*2)+1], [2, boardWidth, boardWidth+1, boardWidth+2], [0, boardWidth, boardWidth*2, (boardWidth*2)+1]];
+const tetrominoS = [[1, 2, boardWidth, boardWidth+1], [0, boardWidth, boardWidth+1, boardWidth*2+1]];
+const tetrominoZ = [[0, 1, boardWidth+1, boardWidth+2], [1, boardWidth, boardWidth+1, boardWidth*2]];
+const tetrominoJ = [[0, 1, 2, boardWidth+2], [1, boardWidth+1, boardWidth*2, boardWidth*2+1], [0, boardWidth, boardWidth+1, boardWidth+2], [0, 1, boardWidth, boardWidth*2]];
+const tetrominoO = [[0, 1, boardWidth, boardWidth+1]];
+const tetrominoT = [[0, 1, 2, boardWidth+1], [1, boardWidth, boardWidth+1, boardWidth*2+1], [1, boardWidth, boardWidth+1, boardWidth+2], [0, boardWidth, boardWidth+1, boardWidth*2]];
 
 const tetrominoes = [];
 tetrominoes.push(tetrominoI, tetrominoL, tetrominoS, tetrominoZ, tetrominoJ, tetrominoO, tetrominoT);
 
 let currentTetromino
+let currentPosition = 0;
+let currentRotation = 0;
+let currentPieceInMiniBoard 
 
 function generateRandomTetromino() {
     const randomIndex = Math.floor(Math.random()*7)
     const randomTetrominoInfo = {
         positionAtTetrominoeList: randomIndex,
         piece: tetrominoes[randomIndex],
-        position: Math.floor(width/2),
+        position: Math.floor(boardWidth/2),
         rotation: 0
     }
     return randomTetrominoInfo;
@@ -41,7 +45,11 @@ function drawTetrominoInMiniBoard() {
         else if (pos >= 20) return pos = pos-(6*2);
         else if (pos >= 10) return pos = pos-6;
         else return pos = pos;
-
     });
+    currentPieceInMiniBoard = tetrominoMiniBoard
     tetrominoMiniBoard.forEach(e => document.querySelector(`.mini-cell-${e}`).style.opacity = 1);
+}
+
+function cleanMiniBoard() {
+    currentPieceInMiniBoard.forEach(e => document.querySelector(`.mini-cell-${e}`).style.opacity = 0.2)
 }
