@@ -5,13 +5,33 @@
 
 }
 .cell{
-    background-color: #C6CFA2;
-    border:1px solid grey;
+    background-color: black;
+    /* border:1px solid black; */
     width:30px;
     height: 30px;
     gap: 5px;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.2;
+
 
 }
+.cell-child{
+    border: 5px solid rgb(231, 231, 231);
+    width: 21px;
+    height: 21px;
+    opacity: 1;
+    /* background-color: #C6CFA2; */
+
+
+
+
+
+}
+
+
 .tetris__grid_container{
     display: flex;
     
@@ -36,11 +56,32 @@
     width: 350px;
 }
 .score{
-    background-color: #C6CFA2;
-    border:1px solid grey;
+    background-color: black;
+    /* border:1px solid black; */
     width:30px;
     height: 30px;
     gap: 5px;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.2;
+}
+.score-child{
+    border: 5px solid rgb(231, 231, 231);
+    width: 21px;
+    height: 21px;
+    opacity: 1;
+
+
+
+
+
+
+
+
+
+
 }
 .score__grid{
     display: grid;
