@@ -1,11 +1,11 @@
 /* tetrominoes rotations */
-const tetrominoI = [[0, boardWidth, boardWidth*2, boardWidth*3], [0, 1, 2, 3], [0, boardWidth, boardWidth*2, boardWidth*3], [0, 1, 2, 3]];
-const tetrominoL = [[0, 1, 2, boardWidth], [0, 1, boardWidth+1, (boardWidth*2)+1], [2, boardWidth, boardWidth+1, boardWidth+2], [0, boardWidth, boardWidth*2, (boardWidth*2)+1]];
-const tetrominoS = [[1, 2, boardWidth, boardWidth+1], [0, boardWidth, boardWidth+1, boardWidth*2+1]];
-const tetrominoZ = [[0, 1, boardWidth+1, boardWidth+2], [1, boardWidth, boardWidth+1, boardWidth*2]];
-const tetrominoJ = [[0, 1, 2, boardWidth+2], [1, boardWidth+1, boardWidth*2, boardWidth*2+1], [0, boardWidth, boardWidth+1, boardWidth+2], [0, 1, boardWidth, boardWidth*2]];
-const tetrominoO = [[0, 1, boardWidth, boardWidth+1]];
-const tetrominoT = [[0, 1, 2, boardWidth+1], [1, boardWidth, boardWidth+1, boardWidth*2+1], [1, boardWidth, boardWidth+1, boardWidth+2], [0, boardWidth, boardWidth+1, boardWidth*2]];
+const tetrominoI = [[0, board_width, board_width*2, board_width*3], [0, 1, 2, 3], [0, board_width, board_width*2, board_width*3], [0, 1, 2, 3]];
+const tetrominoL = [[0, 1, 2, board_width], [0, 1, board_width+1, (board_width*2)+1], [2, board_width, board_width+1, board_width+2], [0, board_width, board_width*2, (board_width*2)+1]];
+const tetrominoS = [[1, 2, board_width, board_width+1], [0, board_width, board_width+1, board_width*2+1]];
+const tetrominoZ = [[0, 1, board_width+1, board_width+2], [1, board_width, board_width+1, board_width*2]];
+const tetrominoJ = [[0, 1, 2, board_width+2], [1, board_width+1, board_width*2, board_width*2+1], [0, board_width, board_width+1, board_width+2], [0, 1, board_width, board_width*2]];
+const tetrominoO = [[0, 1, board_width, board_width+1]];
+const tetrominoT = [[0, 1, 2, board_width+1], [1, board_width, board_width+1, board_width*2+1], [1, board_width, board_width+1, board_width+2], [0, board_width, board_width+1, board_width*2]];
 
 const tetrominoes = [];
 tetrominoes.push(tetrominoI, tetrominoL, tetrominoS, tetrominoZ, tetrominoJ, tetrominoO, tetrominoT);
@@ -20,7 +20,7 @@ function generateRandomTetromino() {
     const randomTetrominoInfo = {
         positionAtTetrominoeList: randomIndex,
         piece: tetrominoes[randomIndex],
-        position: Math.floor(boardWidth/2),
+        position: Math.floor(board_width/2),
         rotation: 0
     }
     return randomTetrominoInfo;
@@ -28,14 +28,14 @@ function generateRandomTetromino() {
 
 function drawTetrominoInMainBoard() {
     const tetromino = generateRandomTetromino();
-    tetromino.piece[tetromino.rotation].forEach(e => document.querySelector(`.cell${e+tetromino.position-1}`).style.opacity = 1)
+    tetromino.piece[tetromino.rotation].forEach(e => document.querySelector(`.cell-${e+tetromino.position-1}`).style.opacity = 1)
     currentTetromino = tetromino;
     console.log(tetromino);
     console.log(tetromino.piece[tetromino.rotation]);
 }
 
 function undrawTetrominoInMainBoard() {
-    currentTetromino.piece[currentTetromino.rotation].forEach(e => document.querySelector(`.cell${e+currentTetromino.position-1}`).style.opacity = 0.2)
+    currentTetromino.piece[currentTetromino.rotation].forEach(e => document.querySelector(`.cell-${e+currentTetromino.position-1}`).style.opacity = 0.2)
 }
 
 function drawTetrominoInMiniBoard() {
@@ -47,9 +47,9 @@ function drawTetrominoInMiniBoard() {
         else return pos = pos;
     });
     currentPieceInMiniBoard = tetrominoMiniBoard
-    tetrominoMiniBoard.forEach(e => document.querySelector(`.mini-cell-${e}`).style.opacity = 1);
+    tetrominoMiniBoard.forEach(e => document.querySelector(`.cell-child-${e}`).style.opacity = 1);
 }
 
 function cleanMiniBoard() {
-    currentPieceInMiniBoard.forEach(e => document.querySelector(`.mini-cell-${e}`).style.opacity = 0.2)
+    currentPieceInMiniBoard.forEach(e => document.querySelector(`.cell-child${e}`).style.opacity = 0.2)
 }

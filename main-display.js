@@ -14,10 +14,10 @@ const miniboard_height = 4
 function drawBoard(clase, width, heigth,gridcontainer) { 
     for( let i=0; i<width*heigth; i++) {
         const cell = document.createElement('div');
-        cell.classList.add(clase);
+        cell.classList.add(clase, `${clase}-${i}`);
         gridcontainer.appendChild(cell)
         const cellChild = document.createElement('div');
-        cellChild.classList.add(`${clase}-child`);
+        cellChild.classList.add(`${clase}-child`, `${clase}-child-${i}`);
         cell.appendChild(cellChild);
         
 
