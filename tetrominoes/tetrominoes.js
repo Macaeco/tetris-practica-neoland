@@ -47,9 +47,9 @@ function drawTetrominoInMiniBoard() {
         else return pos = pos;
     });
     currentPieceInMiniBoard = tetrominoMiniBoard
-    tetrominoMiniBoard.forEach(e => document.querySelector(`.cell-child-${e}`).style.opacity = 1);
+    tetrominoMiniBoard.forEach(e => document.querySelector(`.score-${e}`).style.opacity = 1);
 }
 
 function cleanMiniBoard() {
-    currentPieceInMiniBoard.forEach(e => document.querySelector(`.cell-child${e}`).style.opacity = 0.2)
+    currentPieceInMiniBoard.forEach(e => document.querySelector(`.score${e}`).style.opacity = 0.2)
 }
